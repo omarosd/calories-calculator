@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Calorie Calculator</title>
+</head>
+<body>
+
+<h1>Calorie Calculator</h1>
+
+<form>
+Food name: <input type="text" id="foodName"><br>
+Weight (grams): <input type="text" id="weight"><br>
+<button type="button" onclick="calculateCalories()">Calculate</button>
+</form>
+
+<p id="output"></p>
+
+<script>
+function calculateCalories() {
+  var foodName = document.getElementById("foodName").value;
+  var weight = document.getElementById("weight").value;
+
+  // Replace this with a database or API call to get the calorie content of the food
+  var caloriesPer100g;
+  if (foodName.toLowerCase() === "chicken breast") {
+    caloriesPer100g = 165;
+  } else if (foodName.toLowerCase() === "beef") {
+    caloriesPer100g = 250;
+  } else if (foodName.toLowerCase() === "salmon") {
+    caloriesPer100g = 208;
+  } else {
+    caloriesPer100g = 0;
+  }
+
+  var totalCalories = weight * (caloriesPer100g / 100);
+  document.getElementById("output").innerHTML = "Total calories: " + totalCalories;
+}
+</script>
+
+</body>
+</html>
